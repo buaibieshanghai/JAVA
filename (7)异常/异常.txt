@@ -1,0 +1,58 @@
+public class test {
+    public static void main(String[] args) {
+        Utils.IsPerNum(27);
+        Utils.xunhuanif();
+        try{
+            int i= Utils.ComputeGdc(0,15);
+            System.out.println(最大公约数是+i);
+        }catch(GCDException e){
+            System.out.println(e.showmanage());
+        }
+    }
+}
+自定义异常类
+class GCDException extends Exception{
+   public  String manage;
+   public GCDException(String manage){
+       this.manage = manage ;
+   }
+    public String showmanage(){
+        return manage;
+    }
+}
+工具类
+class Utils{
+    public static boolean IsPerNum(int num){
+        int sum = 0;
+        for(int i=1; inum; i++){
+            if(num % i==0){
+                sum = sum + i;
+            }
+        }
+        if(sum == num){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public static void xunhuanif(){
+        for(int i=0; i10000; i++){
+            if(IsPerNum(i)){
+                System.out.println(数字+i+true);
+            }
+        }
+    }
+    public static int ComputeGdc(int num1, int num2 )throws GCDException {
+        if(num1==0  num2 ==0){
+            throw new GCDException(0与任何数字没有公约数);
+        }
+        int max = num1  num2  num1  num2;
+        int num = 0;
+        for (int i = 1; i = max; i++) {
+            if (num1 % i == 0 && num2 % i == 0) {
+                num = i;
+            }
+        }
+            return num;
+    }
+}
